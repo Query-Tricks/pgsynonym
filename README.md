@@ -1,0 +1,2 @@
+# pgsynonym
+Synonym for PostgreSQL
