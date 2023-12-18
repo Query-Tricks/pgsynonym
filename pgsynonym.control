@@ -1,0 +1,4 @@
+comment = 'Create synonym for tables, views, functions, and procedures'
+default_version = '0.1'
+relocatable = false
+superuser = true
