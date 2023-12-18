@@ -67,4 +67,5 @@ select pgsynonym_revoke('test_user','test_synonym','select, update')
 ```
 ## 주의사항 및 개선예정사항
 1. pgsynonym_grant 등을 사용하여 권한을 부여한 경우 search_path에 pgsynonym이 추가되며, 만약 사용하지 않을 경우 alter role을 통한 설정 변경이 필요함.
-2. 테이블의 구조 변경을 감지하여 자동 refresh하는 기능 필요.(개선예정)
+2. 테이블의 구조 변경을 감지하여 자동 refresh하는 기능 필요.
+3. 시노님의 정보를 가지고있는 pgsynonym.info 테이블 생성 및 조회기능 필요.
