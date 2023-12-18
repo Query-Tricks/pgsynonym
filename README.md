@@ -38,11 +38,12 @@ select pgsynonym_create('스키마명.프로시저명','시노님명')
 select pgsynonym_drop('시노님명')
 ```
 #### synonym grant
-시노님에 대한 권한을 사용권한 부여는 `pgsynonym_grant('부여대상 유저명','시노님명','권한')` 함수를 사용해서 부여합니다.
+시노님에 대한 권한을 사용권한 부여는 `pgsynonym_grant('부여대상 유저명','시노님명','권한')` 함수를 사용해서 부여합니다.  
 ```sql
 select pgsynonym_grant('부여대상유저명','시노님명','권한')
 
 -- 권한의 경우 ','를 사용하여 한 번에 여러 권한을 지정할 수 있습니다.
+
 select pgsynonym_grant('test_user','test_synonym','select, delete')
 select pgsynonym_grant('test_user','test_synonym','select, update')
 ```
@@ -52,6 +53,7 @@ select pgsynonym_grant('test_user','test_synonym','select, update')
 select pgsynonym_revoke('회수대상유저명','시노님명','권한')
 
 -- 권한의 경우 ','를 사용하여 한 번에 여러 권한을 지정할 수 있습니다.
+
 select pgsynonym_revoke('test_user','test_synonym','select, delete')
 select pgsynonym_revoke('test_user','test_synonym','select, update')
 ```
