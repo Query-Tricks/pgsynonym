@@ -20,7 +20,7 @@ CREATE EXTENSION pgsynonym;
 ```
 
 ## pgsynonym 사용방법
-pgsynonym은 기본적으로 수퍼유저를 통해서 생성, 삭제 및 권한부여, 회수가 이루어지게됩니다.  
+pgsynonym은 기본적으로 DBA계정(수퍼유저)를 통해서 생성, 삭제 및 권한부여, 회수가 이루어지게됩니다.  
 기본적인 생성 순서는 아래와 같습니다.  
 1. pgsynonym_create를 통한 시노님 생성
 2. pgsynonym_grant를 통한 사용권한 부여
