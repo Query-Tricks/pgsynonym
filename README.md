@@ -20,6 +20,14 @@ CREATE EXTENSION pgsynonym;
 ```
 
 ## pgsynonym 사용방법
+pgsynonym은 기본적으로 수퍼유저를 통해서 생성, 삭제 및 권한부여, 회수가 이루어지게됩니다.  
+기본적인 생성 순서는 아래와 같습니다.  
+1. pgsynonym_create를 통한 시노님 생성
+2. pgsynonym_grant를 통한 사용권한 부여
+
+pgsynonym은 기본적으로 시노님의 원본 테이블과 함수, 프로시저에 대한 사용 및 조회권한이 해당 유저에게 부여되어 있다는 것을 전재로 합니다.  
+pgsynonym을 처음 create extension 하게되면 시노님의 오너인 pgsynonym 유저와 pgsynonym 스키마가 생성됩니다.  
+모든 시노님은 pgsynonym 스키마에 적재되며, 해당 스키마에 대한 사용권한과 시노님에대한 사용권한을 부여받아야만 사용이 가능합니다.  
 
 #### synonym create
 시노님은 `pgsynonym_create('스키마명.오브젝트명', '시노님명')` 함수를 사용해서 생성합니다.
