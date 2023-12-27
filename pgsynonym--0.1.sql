@@ -69,7 +69,10 @@ BEGIN
     nowdate := now();
     SELECT type INTO object_type FROM (
         SELECT DISTINCT CASE 
-                            WHEN c.relkind = 'r' THEN 'TABLE'
+                            WHEN c.relkind = 'r' or 'p' THEN 'TABLE'
+                            WHEN c.relkind = 'v' THEN 'VIEW'
+                            WHEN c.relkind = 'm' THEN 'MVIEW'
+                            WHEN c.relkind = 's' THEN 'SEQUENCE'
                             WHEN p.prokind = 'p' THEN 'PROCEDURE'
                             WHEN p.prokind = 'f' THEN 'FUNCTION'
                         END as type
@@ -222,8 +225,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- PGSYNONYM REFRESH
-CREATE OR REPLACE FUNCTION pgsynonym.pgsynonym_refresh(pgsynonym_name text)
+-- PGSYNONYM complie
+CREATE OR REPLACE FUNCTION pgsynonym.pgsynonym_complie(pgsynonym_name text)
 RETURNS TEXT AS $$
 DECLARE
     origin_schema text;
